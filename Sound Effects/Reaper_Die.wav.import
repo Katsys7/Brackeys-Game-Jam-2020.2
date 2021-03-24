@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Reaper_Die.wav-1d0095fcee2556753d3e5d01f46594d5.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Reaper_Die.wav"
+dest_files=[ "res://.import/Reaper_Die.wav-1d0095fcee2556753d3e5d01f46594d5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

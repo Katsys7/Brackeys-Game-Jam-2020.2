@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SmallCreature3_16.wav-3ee88ef913318834b573a8831f1d8c92.sample"
+
+[deps]
+
+source_file="res://Sound Effects/SmallCreature3_16.wav"
+dest_files=[ "res://.import/SmallCreature3_16.wav-3ee88ef913318834b573a8831f1d8c92.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

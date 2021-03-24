@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Magic Missiles.wav-ee15e1dd95cbae78a2f299dc11a17ebb.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Magic Missiles.wav"
+dest_files=[ "res://.import/Magic Missiles.wav-ee15e1dd95cbae78a2f299dc11a17ebb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

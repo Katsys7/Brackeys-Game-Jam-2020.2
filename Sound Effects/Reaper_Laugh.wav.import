@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Reaper_Laugh.wav-3c016b258c1fd10747c7e548bb4968f8.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Reaper_Laugh.wav"
+dest_files=[ "res://.import/Reaper_Laugh.wav-3c016b258c1fd10747c7e548bb4968f8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

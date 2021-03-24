@@ -1,0 +1,150 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Art Assets/Background/IMG_1423.PNG" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Background/IMG_1420.PNG" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Background/export.png" type="Texture" id=4]
+[ext_resource path="res://Art Assets/Background/IMG_1424.PNG" type="Texture" id=5]
+[ext_resource path="res://Art Assets/Background/IMG_1425.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.327586 )
+colors = PoolColorArray( 0.67451, 0.760784, 0.682353, 1, 0.511414, 0.574219, 0.518802, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform vec2 direction = vec2(1.0,0.0);
+uniform float speed_scale = 0.01;
+
+void fragment(){
+
+     vec2 move = direction * TIME * speed_scale;
+
+     COLOR = texture(TEXTURE, UV + move);   
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/speed_scale = 0.01
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec2 direction = vec2(1.0,0.0);
+uniform float speed_scale = 0.03;
+
+void fragment(){
+
+     vec2 move = direction * TIME * speed_scale;
+
+     COLOR = texture(TEXTURE, UV + move);   
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/speed_scale = 0.03
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform vec2 direction = vec2(1.0,0.0);
+uniform float speed_scale = 0.05;
+
+void fragment(){
+
+     vec2 move = direction * TIME * speed_scale;
+
+     COLOR = texture(TEXTURE, UV + move);   
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/speed_scale = 0.05
+
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+uniform vec2 direction = vec2(1.0,0.0);
+uniform float speed_scale = 0.05;
+
+void fragment(){
+
+     vec2 move = direction * TIME * speed_scale;
+
+     COLOR = texture(TEXTURE, UV + move);   
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+shader_param/direction = Vector2( 1, 0 )
+shader_param/speed_scale = 3.0
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Polygon2D" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = SubResource( 2 )
+texture_rotation_degrees = -90.0
+polygon = PoolVector2Array( -5.54883, -1.57025, 1037.37, -1.57025, 1029.44, 636.565, -5.54883, 623.866 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="layer2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 4 )
+position = Vector2( 0.877615, 0.254585 )
+scale = Vector2( 0.948148, 0.833333 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 21.5847, 60.4372 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
+material = SubResource( 6 )
+position = Vector2( 515.924, 274.208 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -25.9017, 53.9618 )
+
+[node name="layer3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+material = SubResource( 8 )
+position = Vector2( -5.99323, -11.9865 )
+scale = Vector2( 0.948148, 0.833333 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 5
+z_as_relative = false
+
+[node name="layer4" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 0, -80 )
+scale = Vector2( 1, 0.944 )
+z_index = 5
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 5
+z_as_relative = false
+
+[node name="layer5" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+material = SubResource( 10 )
+scale = Vector2( 1, 0.833 )
+z_index = 5
+texture = ExtResource( 5 )
+centered = false

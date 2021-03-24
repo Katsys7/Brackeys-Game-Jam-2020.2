@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tutorial.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 3.0
+content_margin_top = 10.0
+content_margin_bottom = 3.0
+bg_color = Color( 0.988235, 0.988235, 0.988235, 0 )
+
+[node name="PanelContainer" type="PanelContainer"]
+pause_mode = 2
+visible = false
+margin_left = 200.0
+margin_top = 320.0
+margin_right = 448.0
+margin_bottom = 488.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="First" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 10.0
+margin_right = 248.0
+margin_bottom = 165.0
+custom_constants/shadow_offset_x = 0
+bbcode_enabled = true
+bbcode_text = "The Ambulance holds your body"
+text = "The Ambulance holds your body"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Second" type="RichTextLabel" parent="."]
+visible = false
+margin_right = 544.0
+margin_bottom = 168.0
+bbcode_enabled = true
+bbcode_text = "Your soul is connected to the body indicated by the halo around the ambulance."
+text = "Your soul is connected to the body indicated by the halo around the ambulance."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Third" type="RichTextLabel" parent="."]
+visible = false
+margin_right = 544.0
+margin_bottom = 168.0
+bbcode_enabled = true
+bbcode_text = "This restricts your movement."
+text = "This restricts your movement."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fourth" type="RichTextLabel" parent="."]
+visible = false
+margin_right = 544.0
+margin_bottom = 168.0
+bbcode_enabled = true
+bbcode_text = "Press \"Left Mouse Button\" to shoot at the Reaper's minions, arrow keys to move."
+text = "Press \"Left Mouse Button\" to shoot at the Reaper's minions, arrow keys to move."
+__meta__ = {
+"_edit_use_anchors_": false
+}

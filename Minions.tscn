@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Art Assets/Minions/2.png" type="Texture" id=1]
+[ext_resource path="res://Art Assets/Minions/1.png" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Minions/3.png" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Minions/4.png" type="Texture" id=4]
+[ext_resource path="res://Minions.gd" type="Script" id=5]
+[ext_resource path="res://Blast_Particle_Material.tres" type="Material" id=6]
+[ext_resource path="res://Sound Effects/Splat_03.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound Effects/die.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sound Effects/SmallCreature3_16.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sound Effects/Monster-1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sound Effects/projectile_player.wav" type="AudioStream" id=11]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 25.0
+flag_disable_z = true
+spread = 15.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 7.0
+scale_curve = SubResource( 2 )
+color = Color( 0.192157, 0.160784, 0.211765, 1 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
+
+[node name="Minions" type="KinematicBody2D"]
+scale = Vector2( 0.75, 0.75 )
+z_index = 5
+collision_layer = 4
+collision_mask = 32
+script = ExtResource( 5 )
+
+[node name="Smoke" type="Particles2D" parent="."]
+rotation = -1.5708
+amount = 7
+lifetime = 1.5
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.338028, 0.338028 )
+frames = SubResource( 4 )
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -35.9641, -14.6049, 4.5448, -39.6989, 25.6955, -36.831, 28.5634, 13.357, 21.3936, 35.9416, 1.31842, 45.9792, -29.5114, 33.0737 )
+
+[node name="Blast" type="Particles2D" parent="."]
+position = Vector2( 1.33333, -0.666667 )
+emitting = false
+amount = 50
+lifetime = 3.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+local_coords = false
+process_material = ExtResource( 6 )
+
+[node name="Splat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 1.25
+
+[node name="Shriek" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="Dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+
+[node name="Spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+pitch_scale = 1.25
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )

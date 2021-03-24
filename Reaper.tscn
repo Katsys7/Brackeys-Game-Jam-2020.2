@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Art Assets/Reaper/reaper_normal_edited.png" type="Texture" id=1]
+[ext_resource path="res://Art Assets/Reaper/reaper_rage.png" type="Texture" id=2]
+[ext_resource path="res://Sound Effects/Reaper_Laugh.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sound Effects/Reaper_Die.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sound Effects/Reaper_Hurt.wav" type="AudioStream" id=5]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 15.0
+flag_disable_z = true
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 15.0
+scale_curve = SubResource( 2 )
+color = Color( 0.894118, 0.596078, 0.596078, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 82.5969, 210.686 )
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Reaper_Normal:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Rage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Reaper_Rage:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[node name="Reaper" type="KinematicBody2D"]
+z_index = 5
+collision_layer = 2
+collision_mask = 0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -8, -111 )
+rotation = -1.5708
+lifetime = 1.5
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="Reaper_Normal" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 6
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 5 )
+anims/Rage = SubResource( 6 )
+
+[node name="Reaper_Rage" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 6
+frame = 2
+
+[node name="Laugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 20.0
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 15.0

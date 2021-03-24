@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Art Assets/Projectiles/travel0.png" type="Texture" id=1]
+[ext_resource path="res://Art Assets/Projectiles/travel1.png" type="Texture" id=2]
+[ext_resource path="res://Soul Projectile.gd" type="Script" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.984668, 0.0511364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_curve = SubResource( 2 )
+color = Color( 0.360784, 0.752941, 0.87451, 1 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "travel",
+"speed": 7.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 11.7391
+height = 18.4205
+
+[node name="Soul Projectile" type="Area2D"]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+rotation = -1.5708
+amount = 15
+lifetime = 0.7
+randomness = 0.16
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "travel"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.996498, -0.66433 )
+shape = SubResource( 5 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+[connection signal="body_entered" from="." to="." method="_on_Soul_Projectile_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

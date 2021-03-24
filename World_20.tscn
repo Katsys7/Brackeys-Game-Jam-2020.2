@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Art Assets/Background/IMG_1424.PNG" type="Texture" id=1]
+[ext_resource path="res://Art Assets/Background/IMG_1423.PNG" type="Texture" id=2]
+[ext_resource path="res://Art Assets/Background/IMG_1419.PNG" type="Texture" id=3]
+[ext_resource path="res://Art Assets/Background/IMG_1420.PNG" type="Texture" id=4]
+[ext_resource path="res://Art Assets/Background/export.png" type="Texture" id=5]
+[ext_resource path="res://Reaper.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Ambulance.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Soul Projectile.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Minion Projectile.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scythe.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Minions.tscn" type="PackedScene" id=11]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+
+[node name="layer1" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 0.948148, 0.833333 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground2"]
+
+[node name="layer2" type="Sprite" parent="Background/ParallaxBackground2/ParallaxLayer"]
+scale = Vector2( 0.948148, 0.833333 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground3"]
+
+[node name="layer3" type="Sprite" parent="Background/ParallaxBackground3/ParallaxLayer"]
+position = Vector2( -3.63798e-12, 0 )
+scale = Vector2( 0.948148, 0.833333 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxBackground4" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground4"]
+motion_mirroring = Vector2( 64, 0 )
+
+[node name="layer4" type="Sprite" parent="Background/ParallaxBackground4/ParallaxLayer"]
+position = Vector2( 0, -80 )
+scale = Vector2( 0.896296, 0.944444 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxBackground5" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground5"]
+motion_mirroring = Vector2( 64, 0 )
+
+[node name="layer5" type="Sprite" parent="Background/ParallaxBackground5/ParallaxLayer"]
+scale = Vector2( 0.888889, 0.833333 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Reaper" parent="." instance=ExtResource( 6 )]
+position = Vector2( 8, 248 )
+
+[node name="Ambulance" parent="." instance=ExtResource( 7 )]
+position = Vector2( 232, -72 )
+
+[node name="Soul Projectile" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, 376 )
+
+[node name="Minion Projectile" parent="." instance=ExtResource( 9 )]
+position = Vector2( 304, 376 )
+
+[node name="Scythe" parent="." instance=ExtResource( 10 )]
+position = Vector2( 608, 192 )
+
+[node name="Minions" parent="." instance=ExtResource( 11 )]
+position = Vector2( 816, 344 )

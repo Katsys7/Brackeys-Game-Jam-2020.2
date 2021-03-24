@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface/HUD/heart.png" type="Texture" id=1]
+
+[node name="Health" type="TextureRect"]
+margin_left = 6.49268
+margin_top = 24.9025
+margin_right = 459.493
+margin_bottom = 483.902
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

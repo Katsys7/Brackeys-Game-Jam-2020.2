@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/brackeys.ogg-67411337e6b450f2e7c6f55989433835.oggstr"
+
+[deps]
+
+source_file="res://Music/brackeys.ogg"
+dest_files=[ "res://.import/brackeys.ogg-67411337e6b450f2e7c6f55989433835.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
